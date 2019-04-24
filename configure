@@ -1,0 +1,40 @@
+#!/bin/bash
+# This script assembles Scenes.xctemplate from separate templates.
+# MIT (2019) Fabianus Hendy Evan based on script by JesusCamacho.
+
+view="UIViewController"
+
+rm -rf Scene.xctemplate/"$view"
+
+## View Controller.xctemplate
+cp -rf View\ Controller.xctemplate/"$view" Scene.xctemplate
+
+## Configurator.xctemplate
+config="Configurator.xctemplate"
+configFile="___FILEBASENAME___Configurator.*"
+cp $config/$configFile Scene.xctemplate/"$view"
+
+## Interactor.xctemplate
+int="Interactor.xctemplate"
+intFile="___FILEBASENAME___Interactor*.*"
+cp $int/$intFile Scene.xctemplate/"$view"
+
+## Boundary Models.xctemplate
+model="Boundary Models.xctemplate"
+modelFile="___FILEBASENAME___BoundaryModels.*"
+cp "$model"/$modelFile Scene.xctemplate/"$view"
+ 
+## Presenter.xctemplate
+pres="Presenter.xctemplate"
+presFile="___FILEBASENAME___Presenter*.*"
+cp $pres/$presFile Scene.xctemplate/"$view"
+ 
+## Router.xctemplate
+router="Router.xctemplate"
+routerFile="___FILEBASENAME___Router.*"
+cp $router/$routerFile Scene.xctemplate/"$view"
+
+## Worker.xctemplate
+worker="Worker.xctemplate"
+workerFile="___FILEBASENAME___Worker.*"
+cp $worker/$workerFile Scene.xctemplate/"$view"
