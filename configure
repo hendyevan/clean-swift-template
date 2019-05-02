@@ -38,3 +38,5 @@ cp $router/$routerFile Scene.xctemplate/"$view"
 worker="Worker.xctemplate"
 workerFile="___FILEBASENAME___Worker.*"
 cp $worker/$workerFile Scene.xctemplate/"$view"
+
+##test
